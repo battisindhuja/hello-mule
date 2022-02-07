@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7ec523c0-4b23-4cc8-b57f-16e91bbd9fef" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="hello-mule-projectFlow" doc:id="013fdfe0-4723-4980-b8cc-1d00b8a8c061" >
+		<http:listener doc:name="Listener  GET /test" doc:id="ee4911fc-9c63-4a6e-b69e-9a26319a085a" config-ref="HTTP_Listener_config" path="test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="a61c3a25-5426-483d-8f28-cfb3362d1f2c" message="** Dummy payload **"/>
+		<set-payload value="** Hello Good Morning **" doc:name="Set Payload" doc:id="fb5c8eb4-ea32-4c6d-8aa9-b8b70082d3c1" />
+	</flow>
+</mule>
